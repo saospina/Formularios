@@ -4,13 +4,17 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
-  styles: []
+  styles: [`
+    .ng-invalid.ng-touched:not(form){
+      border: 1px solid red;
+    }
+  ` ]
 })
 export class TemplateComponent {
   user: object = {
-    name: 'sergio',
-    lastName: 'Ospina',
-    email: ''
+    name: null,
+    lastName: null,
+    email: null 
   };
 
   constructor() { }
@@ -20,7 +24,6 @@ export class TemplateComponent {
     console.log('ngForm', form);
     console.log('Value', form.value);
     console.log('Usuario', this.user);
-    
   }
 
 }
