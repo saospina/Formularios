@@ -37,7 +37,11 @@
                [(ngModel)]="user.lastName "
                minlength="5"
                required
+               #lastName="ngModel"
                >
+               <div *ngIf="lastName.errors?.required">
+                Required field
+               </div>
       </div>
     </div>
 
@@ -55,7 +59,15 @@
              minlength="5"
              required
              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+             #email="ngModel"
              >
+          <div *ngIf="email.errors?.required">
+              *
+           </div>
+           <div *ngIf="email.errors?.pattern">
+            This is not a email format
+         </div>
+           
     </div>
   </div>
 
